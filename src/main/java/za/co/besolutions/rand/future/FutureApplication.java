@@ -9,8 +9,6 @@ public class FutureApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FutureApplication.class, args);
-
-		User u = new User("Test", "Pool");
 	}
 
 }
