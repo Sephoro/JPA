@@ -6,14 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import za.co.besolutions.rand.future.entity.User;
+import za.co.besolutions.rand.future.service.UserRepository;
 import za.co.besolutions.rand.future.service.UserService;
 
 @Component
-public class UserServiceCommandLineRunner implements CommandLineRunner {
+public class UserServiceRepositoryLineRunner implements CommandLineRunner {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserServiceCommandLineRunner.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceRepositoryLineRunner.class);
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
 
 
     @Override
@@ -22,13 +23,13 @@ public class UserServiceCommandLineRunner implements CommandLineRunner {
         User user1 = new User("Boikanyo", "PM & Co-Founder");
         User user2 = new User("Lesetja", "MD");
 
-        userService.insert(user);
+        userRepository.save(user);
         logger.info("Inserted user {}", user);
 
-        userService.insert(user1);
+        userRepository.save(user1);
         logger.info("Inserted user {}",user1);
 
-        userService.insert(user2);
+        userRepository.save(user2);
         logger.info("Inserted user {}",user2);
 
     }
